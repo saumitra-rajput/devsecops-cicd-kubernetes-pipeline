@@ -17,10 +17,10 @@ jobs:
         node-version: [18, 20, 22]
     steps:
       - name: checkout code
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: setup Nodejs
-        run: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
