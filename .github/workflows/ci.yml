@@ -36,4 +36,4 @@ jobs:
 
       - name: Docker Build Validation
         run: |
-          docker build -t devsecops-app:${{ github.sha }}
+          docker build -t devsecops-app:${{ github.sha }} .
