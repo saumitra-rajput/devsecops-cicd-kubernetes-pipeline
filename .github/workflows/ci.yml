@@ -1,0 +1,39 @@
+name: CI stage
+
+on: 
+  push:
+    branch:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - name: checkout code
+        run: actions/checkout@v4
+
+      - name: setup Nodejs
+        run: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install dependencies
+        run: |
+          cd app
+          npm install
+
+      - name: Run test
+        run: |
+          cd app
+          npm test
+
+      - name: Docker Build Validation
+        run: |
+          docker build -t devsecops-app:${{ github.sha }}
