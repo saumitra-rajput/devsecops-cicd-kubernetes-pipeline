@@ -19,6 +19,9 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
+      - name: Gitleaks Scan
+        uses: gitleaks/gitleaks-action@v2
+
       - name: setup Nodejs
         uses: actions/setup-node@v4
         with:
