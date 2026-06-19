@@ -46,3 +46,10 @@ jobs:
       - name: Docker Build Validation
         run: |
           docker build -t devsecops-app:${{ github.sha }} .
+
+      - name: Trivy image scan
+        uses: aquasecurity/trivy-action@0.35.0
+        with:
+          image-ref: devsecops-app:${{ github.sha }}
+          format: table
+          severity: CRITICAL,HIGH
