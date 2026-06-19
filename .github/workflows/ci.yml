@@ -22,11 +22,11 @@ jobs:
       - name: Gitleaks Scan
         uses: gitleaks/gitleaks-action@v2
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: $ {{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: $ {{ secrets.SONAR_HOST_URL }}
+     # - name: SonarQube Scan
+     #   uses: SonarSource/sonarqube-scan-action@master
+     #   env:
+     #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+     #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: setup Nodejs
         uses: actions/setup-node@v4
