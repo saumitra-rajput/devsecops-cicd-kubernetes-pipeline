@@ -1,0 +1,24 @@
+# this is practice deployment file
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deployment
+  namespace: app
+  labels:
+    app: node-app
+spec: 
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec: 
+      containers:
+      - name: node-cont
+        image: httpd
+        ports:
+        - containerPort: 3000
