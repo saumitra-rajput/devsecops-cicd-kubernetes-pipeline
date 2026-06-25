@@ -1,3 +1,5 @@
+# Namespace file for the app
+  
 kind: Namespace
 apiVersion: v1
 metadata:
