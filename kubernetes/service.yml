@@ -4,13 +4,13 @@ metadata:
   labels:
     app: app
   name: test
-  namespace: node-port
+  namespace:  app
 spec:
   ports:
-  - name: 80-800
+  - name: 80-3000
     port: 80
     protocol: TCP
-    targetPort: 800
+    targetPort: 3000
   selector:
     app: app
   type: NodePort
