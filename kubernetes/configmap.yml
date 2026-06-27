@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiversion: v1
 metadata: 
-  name: node-app-config
+  name: app-config
   namespace: app
 
 data:
