@@ -8,7 +8,7 @@ metadata:
   labels:
     app: devsecops-app
 spec: 
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels: 
       app: devsecops-app
@@ -19,11 +19,11 @@ spec:
     spec: 
       containers:
       - name: node-cont
-        image: httpd
-        imagePullPolicy: Always
-        securityContext: 
-        runAsNonRoot: true
-        runAsUser: 1000
+        image: devsecops:v1
+        imagePullPolicy: IfNotPresent # Always
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
 
         ports:
         - containerPort: 3000
