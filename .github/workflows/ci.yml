@@ -26,6 +26,8 @@ jobs:
 
       - name: Gitleaks Scan
         uses: gitleaks/gitleaks-action@v2
+        env:
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
 
      # - name: SonarQube Scan
      #   uses: SonarSource/sonarqube-scan-action@master
@@ -57,6 +59,7 @@ jobs:
         with:
           image-ref: devsecops-app:${{ github.sha }}
           format: table
+          output: trivy-report.json
           severity: CRITICAL,HIGH
 
       - name: AWS login
